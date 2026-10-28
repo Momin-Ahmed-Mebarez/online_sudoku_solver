@@ -20,10 +20,10 @@ if __name__ == '__main__':
         input("Start: ")
         time.sleep(0.5)
         input_fields = [edgeBrowser.find_element(By.ID,f"T{cell}") for cell in range(81)]
-        num_fields = [edgeBrowser.find_element(By.ID,f"Num{cell}") for cell in range(0,10)]
+        #num_fields = [edgeBrowser.find_element(By.ID,f"Num{cell}") for cell in range(0,10)] Old way
     
         puzzle_string = ""
-    
+        #Adds the elements found in the cell to create the puzzle
         for field in input_fields:
             try:
                 puzzle_string += field.find_elements(By.TAG_NAME,"div")[1].text
@@ -32,6 +32,7 @@ if __name__ == '__main__':
     
         original,solution = start(puzzle_string)
         print(solution)
+        #We creates changes so that only solved cells are clicked
         changes = solution != original
         for idx,element in enumerate(solution):
             if(changes[idx]):
