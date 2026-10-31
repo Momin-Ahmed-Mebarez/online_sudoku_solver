@@ -22,7 +22,8 @@ def remove_one_solution(board):
         for x,y in find_empty(board):
             possiblities =  find_possibilities(board,x,y)
             if(len(possiblities) > 1): continue
-            board.arr[x][y] = possiblities
+
+            board.arr[x][y] = possiblities[0]
             if(is_full(board)):
                 one_guess_solutions_flag = False
                 break
