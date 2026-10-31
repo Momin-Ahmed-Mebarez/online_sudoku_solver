@@ -67,7 +67,7 @@ def find_empty(board: Board) -> np.ndarray:
 def is_full(board: Board) -> bool:
     return find_empty(board) is None
 #Checks the possible solutions for a cell
-def find_possibilities(board: Board, x: int, y: int) -> np.ndarray:
+def find_possibilities(board: Board, x: int, y: int) -> list:
     block_pos = x // 3, y // 3
     row = board.get_row(x)
     column = board.get_column(y)
